@@ -1,7 +1,7 @@
 from fastapi import FastAPI
-from SteamMarketItem import SteamMarketItem
-import post_classes
-import db_funcs
+from sm_api.SteamMarketItem import SteamMarketItem
+import sm_api.api_models.models as models
+import sm_api.db_funcs as db_funcs
 from pydantic import BaseModel
 
 
@@ -36,13 +36,13 @@ app = FastAPI()
 
 
 @app.put("/user")
-async def put_create_user(user: post_classes.User):
+async def put_create_user(user: models.User):
     ret = db_funcs.create_user(user.username, user.password)
     return {"success": ret}
 
 
 @app.put("/item")
-async def put_add_item(item: post_classes.SteamMarketItemDB):
+async def put_add_item(item: models.SteamMarketItemDB):
     db_funcs.add_item(item.username, item.game_id, item.name, item.price)
     return {"success": True}
 

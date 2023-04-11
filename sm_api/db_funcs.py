@@ -1,5 +1,5 @@
 import sqlite3
-import config
+import sm_api.config as config
 import os
 
 
