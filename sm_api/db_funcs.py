@@ -70,7 +70,7 @@ def add_item(username: str, game_id: int, name: str, price: float) -> None:
     con.commit()
 
 
-def remove_item(item_id: int):
+def remove_item(item_id: int) -> None:
     """Removes an item from a user's tracked items.
 
     Args:
@@ -83,7 +83,7 @@ def remove_item(item_id: int):
     con.commit()
 
 
-def get_user_items(username: str):
+def get_user_items(username: str) -> list[dict[str, str]]:
     con = sqlite3.connect(config.DB_PATH)
     con.row_factory = sqlite3.Row
     cur = con.cursor()
