@@ -42,8 +42,3 @@ class SteamMarketItem:
             prices.append(SteamMarketPrice(price, date))
 
         return prices
-
-
-if __name__ == "__main__":
-    smi = SteamMarketItem(730, "M4A4 | Buzz Kill (Minimal Wear)")
-    print(smi.prices[-1].price)
